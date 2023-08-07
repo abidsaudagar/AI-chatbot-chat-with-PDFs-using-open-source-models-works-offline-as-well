@@ -17,7 +17,7 @@ def create_vector_db():
                                                    chunk_overlap=50)
     texts = text_splitter.split_documents(documents)
 
-    embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2',
+    embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2', # Here I'm using all-MiniLM-L6-v2 for embeddings!
                                        model_kwargs={'device': 'cpu'})
 
     db = FAISS.from_documents(texts, embeddings)
